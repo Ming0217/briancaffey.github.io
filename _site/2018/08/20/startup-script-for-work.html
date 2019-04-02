@@ -68,6 +68,12 @@
           <a class="page-link" href="/projects/index.html">Projects</a>
           
         
+          
+        
+          
+        
+          
+        
       </div>
     </nav>
 
@@ -82,29 +88,28 @@
 
   <header class="post-header">
     <h1 class="post-title" itemprop="name headline">Scripting my daily development environment setup</h1>
-    <p class="post-meta"><time datetime="2018-08-20T00:00:00-04:00" itemprop="datePublished">Aug 20, 2018</time></p>
+    <p class="post-meta"><time datetime="2018-08-20T00:00:00-05:00" itemprop="datePublished">Aug 20, 2018</time></p>
   </header>
 
   <div class="post-content" itemprop="articleBody">
     <p>This article shows how I automated the setup of my daily development environment for work with a bash script. Here’s the script:</p>
 
-<p>```bash
-#!/bin/sh
-PROJDIR=/home/bcaffey/git/project-directory/src
-NOTESDIR=/home/bcaffey/Documents/notes</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/bin/sh</span>
+<span class="nv">PROJDIR</span><span class="o">=</span>/home/bcaffey/git/project-directory/src
+<span class="nv">NOTESDIR</span><span class="o">=</span>/home/bcaffey/Documents/notes
 
-<p>gnome-terminal \
-    –tab –working-directory=$PROJDIR -e “bash -c ‘echo -ne "\033]0;Django - Server\007"; . ./setup-virtualenv.bash &amp;&amp; ./runserver’” \
-    –tab –working-directory=$PROJDIR -e “bash -c ‘echo -ne "\033]0;Celery - Queue 1\007"; . ./setup-virtualenv.bash &amp;&amp; ./runcelery_1’” \
-    –tab –working-directory=$PROJDIR -e “bash -c ‘echo -ne "\033]0;Celery - Queue 2\007"; . ./setup.-virtualenvbash &amp;&amp; ./runcelery_2’” \
-    –tab –working-directory=$PROJDIR -e “bash -c ‘echo -ne "\033]0;Flower\007"; . ./setup-virtualenv.bash &amp;&amp; ./runflower’” \
-    –tab –working-directory=$PROJDIR -e “bash -c ‘echo -ne "\033]0;Django - Shell\007"; . ./setup-virtualenv.bash &amp;&amp; ./manage shell’” \</p>
+gnome-terminal <span class="se">\</span>
+    <span class="nt">--tab</span> <span class="nt">--working-directory</span><span class="o">=</span><span class="nv">$PROJDIR</span> <span class="nt">-e</span> <span class="s2">"bash -c 'echo -ne </span><span class="se">\"\0</span><span class="s2">33]0;Django - Server</span><span class="se">\0</span><span class="s2">07</span><span class="se">\"</span><span class="s2">; . ./setup-virtualenv.bash &amp;&amp; ./runserver'"</span> <span class="se">\</span>
+    <span class="nt">--tab</span> <span class="nt">--working-directory</span><span class="o">=</span><span class="nv">$PROJDIR</span> <span class="nt">-e</span> <span class="s2">"bash -c 'echo -ne </span><span class="se">\"\0</span><span class="s2">33]0;Celery - Queue 1</span><span class="se">\0</span><span class="s2">07</span><span class="se">\"</span><span class="s2">; . ./setup-virtualenv.bash &amp;&amp; ./runcelery_1'"</span> <span class="se">\</span>
+    <span class="nt">--tab</span> <span class="nt">--working-directory</span><span class="o">=</span><span class="nv">$PROJDIR</span> <span class="nt">-e</span> <span class="s2">"bash -c 'echo -ne </span><span class="se">\"\0</span><span class="s2">33]0;Celery - Queue 2</span><span class="se">\0</span><span class="s2">07</span><span class="se">\"</span><span class="s2">; . ./setup.-virtualenvbash &amp;&amp; ./runcelery_2'"</span> <span class="se">\</span>
+    <span class="nt">--tab</span> <span class="nt">--working-directory</span><span class="o">=</span><span class="nv">$PROJDIR</span> <span class="nt">-e</span> <span class="s2">"bash -c 'echo -ne </span><span class="se">\"\0</span><span class="s2">33]0;Flower</span><span class="se">\0</span><span class="s2">07</span><span class="se">\"</span><span class="s2">; . ./setup-virtualenv.bash &amp;&amp; ./runflower'"</span> <span class="se">\</span>
+    <span class="nt">--tab</span> <span class="nt">--working-directory</span><span class="o">=</span><span class="nv">$PROJDIR</span> <span class="nt">-e</span> <span class="s2">"bash -c 'echo -ne </span><span class="se">\"\0</span><span class="s2">33]0;Django - Shell</span><span class="se">\0</span><span class="s2">07</span><span class="se">\"</span><span class="s2">; . ./setup-virtualenv.bash &amp;&amp; ./manage shell'"</span> <span class="se">\</span>
 
-<p>cd $PROJDIR &amp;&amp; code .
-cd $NOTESDIR &amp;&amp; code .</p>
+<span class="nb">cd</span> <span class="nv">$PROJDIR</span> <span class="o">&amp;&amp;</span> code <span class="nb">.</span>
+<span class="nb">cd</span> <span class="nv">$NOTESDIR</span> <span class="o">&amp;&amp;</span> code <span class="nb">.</span>
 
-<p>google-chrome http://subdomain.domain.com:8222/admin/
-```</p>
+google-chrome http://subdomain.domain.com:8222/admin/
+</code></pre></div></div>
 
 <p>This script opens a <code class="highlighter-rouge">gnome-terminal</code> window with 5 tabs, one for a Django app, another for a Django shell, 2 for celery workers and one to run flower. Additionally, we specify a name for the tabs with <code class="highlighter-rouge">\033]0;Django - Shell\007\"</code>. I then launch VS Code and open up my Django app and I’m all ready to go. This might only take minute or two to do manually each morning, but the script can be launched at startup so that my development environment is set as soon as I turn on my computer. An easy way to do this on Ubuntu is to use <code class="highlighter-rouge">Startup Applications</code>.</p>
 
@@ -250,7 +255,7 @@ cd $NOTESDIR &amp;&amp; code .</p>
       </div>
       
       <div class="footer-col footer-col-3">
-        <p></p>
+        <p>my personal site</p>
       </div>
       
     </div>

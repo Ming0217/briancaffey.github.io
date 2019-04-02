@@ -68,6 +68,12 @@
           <a class="page-link" href="/projects/index.html">Projects</a>
           
         
+          
+        
+          
+        
+          
+        
       </div>
     </nav>
 
@@ -82,7 +88,7 @@
 
   <header class="post-header">
     <h1 class="post-title" itemprop="name headline">Reading RSS with Python</h1>
-    <p class="post-meta"><time datetime="2017-10-17T00:00:00-04:00" itemprop="datePublished">Oct 17, 2017</time></p>
+    <p class="post-meta"><time datetime="2017-10-17T00:00:00-05:00" itemprop="datePublished">Oct 17, 2017</time></p>
   </header>
 
   <div class="post-content" itemprop="articleBody">
@@ -92,40 +98,36 @@
 
 <p>First, install it with:</p>
 
-<p><code class="highlighter-rouge">python
-pip install feedparser
-</code></p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">pip</span> <span class="n">install</span> <span class="n">feedparser</span>
+</code></pre></div></div>
 
 <p>Here’s the setup that I will be using in utility a function that will be imported to <code class="highlighter-rouge">views.py</code> and called in the <code class="highlighter-rouge">home()</code> function that renders the homepage for briancaffey.com:</p>
 
-<p>```
-import feedparser</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>import feedparser
 
-<p>def get_blog_posts(number_of_posts):
-    url = “http://briancaffey.github.io/feed”
+def get_blog_posts(number_of_posts):
+    url = "http://briancaffey.github.io/feed"
     feed = feedparser.parse(url)
-    posts = feed[‘items’][:number_of_posts]
-    return posts</p>
-
-<p>```</p>
+    posts = feed['items'][:number_of_posts]
+    return posts
+    
+</code></pre></div></div>
 
 <p>Next, in <code class="highlighter-rouge">views.py</code>, we just need to import the function, call it with the number of articles we want to show, save the returned value to a variable and then pass that to <code class="highlighter-rouge">context</code>:</p>
 
-<p>```python 
-from utils import get_blog_posts
-def home(request):
-    …
-    posts = get_blog_posts(4)</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">utils</span> <span class="kn">import</span> <span class="n">get_blog_posts</span>
+<span class="k">def</span> <span class="nf">home</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+    <span class="o">...</span>
+    <span class="n">posts</span> <span class="o">=</span> <span class="n">get_blog_posts</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>context = {
-    ...
-    'recent_posts': posts,
-    ...
-}
-
-return render(request, 'home.html', context) ```
-</code></pre>
-</div>
+    <span class="n">context</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="o">...</span>
+        <span class="s">'recent_posts'</span><span class="p">:</span> <span class="n">posts</span><span class="p">,</span>
+        <span class="o">...</span>
+    <span class="p">}</span>
+    
+    <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s">'home.html'</span><span class="p">,</span> <span class="n">context</span><span class="p">)</span>
+</code></pre></div></div>
 
 <p>In the context, we can access the following data for each item:</p>
 
@@ -312,7 +314,7 @@ return render(request, 'home.html', context) ```
       </div>
       
       <div class="footer-col footer-col-3">
-        <p></p>
+        <p>my personal site</p>
       </div>
       
     </div>

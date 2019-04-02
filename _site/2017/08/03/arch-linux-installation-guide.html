@@ -68,6 +68,12 @@
           <a class="page-link" href="/projects/index.html">Projects</a>
           
         
+          
+        
+          
+        
+          
+        
       </div>
     </nav>
 
@@ -82,7 +88,7 @@
 
   <header class="post-header">
     <h1 class="post-title" itemprop="name headline">Arch Linux Installation Guide</h1>
-    <p class="post-meta"><time datetime="2017-08-03T00:00:00-04:00" itemprop="datePublished">Aug 3, 2017</time></p>
+    <p class="post-meta"><time datetime="2017-08-03T00:00:00-05:00" itemprop="datePublished">Aug 3, 2017</time></p>
   </header>
 
   <div class="post-content" itemprop="articleBody">
@@ -98,9 +104,8 @@
 
 <p>Another solution that is probably much faster is using Rufus, a Windows/Linux utility for burning ISO images to bootable media. The Arch Wiki has a highlighted note about using Rufus:</p>
 
-<p><code class="highlighter-rouge">
-Note: Be sure to select DD mode or the image will be transferred incorrectly.
-</code></p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Note: Be sure to select DD mode or the image will be transferred incorrectly.
+</code></pre></div></div>
 
 <p>A problem I found is that you can’t select the ISO with DD mode selected. I was able to select ISO (in ISO mode), choose the ISO file in my downloads folder, and then select DD mode.</p>
 
@@ -114,27 +119,23 @@ Note: Be sure to select DD mode or the image will be transferred incorrectly.
 
 <p>The default font when installing Arch Linux is quite small, so you may want to increase the font size.</p>
 
-<p><code class="highlighter-rouge">
-ls /usr/share/kbd/consolefonts/
-</code></p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ls /usr/share/kbd/consolefonts/
+</code></pre></div></div>
 
 <p>This command will list the available fonts. To set a font, run the following command:</p>
 
-<p><code class="highlighter-rouge">
-setfont sun12x22
-</code></p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>setfont sun12x22
+</code></pre></div></div>
 
 <p>To revert back to the default font, just run:</p>
 
-<p><code class="highlighter-rouge">
-setfont
-</code></p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>setfont
+</code></pre></div></div>
 
 <p>You can also view the current font with</p>
 
-<p><code class="highlighter-rouge">
-showconsolefont
-</code></p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>showconsolefont
+</code></pre></div></div>
 
 <h3 id="using-fdisk-for-partitioning">Using <code class="highlighter-rouge">fdisk</code> for partitioning</h3>
 
@@ -146,9 +147,8 @@ showconsolefont
 
 <p>We want to run fdisk and enter the device we want to work with as the first argument after the command:</p>
 
-<p><code class="highlighter-rouge">
-fdisk /dev/sda
-</code></p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>fdisk /dev/sda
+</code></pre></div></div>
 
 <p>On your Virtual Machine it will most likely be <strong>sda</strong>, but on a physical machine it could vary slightly.</p>
 
@@ -174,53 +174,45 @@ fdisk /dev/sda
 
 <p>We should see the following:</p>
 
-<p><code class="highlighter-rouge">
-The partition table has been altered.
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>The partition table has been altered.
 Calling ioctl() to re-read partition table.
 Syncing disks.
-</code></p>
+</code></pre></div></div>
 
 <h3 id="create-filesystems-and-format-partitions">Create Filesystems and Format Partitions</h3>
 
 <p>Make filesystems for partitions 1 and 3:</p>
 
-<p><code class="highlighter-rouge">
-mkfs.ext4 /dev/sda1
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mkfs.ext4 /dev/sda1
 mkfs.ext4 /dev/sda3
-</code></p>
+</code></pre></div></div>
 
-<p><code class="highlighter-rouge">
-mkswap /dev/sda2
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mkswap /dev/sda2
 swapon /dev/sda2
-</code></p>
+</code></pre></div></div>
 
 <h3 id="verify-our-layout-with-lsblk">Verify our layout with <code class="highlighter-rouge">lsblk</code></h3>
 
-<p><code class="highlighter-rouge">
-lsblk
-</code></p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>lsblk
+</code></pre></div></div>
 
 <h3 id="mount-filesystems">Mount Filesystems</h3>
 
-<p><code class="highlighter-rouge">
-mount /dev/sda1 /mnt
-</code></p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mount /dev/sda1 /mnt
+</code></pre></div></div>
 
-<p><code class="highlighter-rouge">
-mkdir /mnt/home
-</code></p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mkdir /mnt/home
+</code></pre></div></div>
 
-<p><code class="highlighter-rouge">
-mount /dev/sda3 /mnt/home
-</code></p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mount /dev/sda3 /mnt/home
+</code></pre></div></div>
 
 <p>(The swap partition has already been initialized.)</p>
 
 <h3 id="backup-mirrorlist">Backup mirrorlist</h3>
 
-<p><code class="highlighter-rouge">
-cp -vf /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.backup
-</code></p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cp -vf /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.backup
+</code></pre></div></div>
 
 <p>We can edit the mirrorlist to select the closest mirror, but this is not necessary.</p>
 
@@ -228,27 +220,23 @@ cp -vf /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.backup
 
 <p>This synchronizes package databases:</p>
 
-<p><code class="highlighter-rouge">
-pacman -Syy
-</code></p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pacman -Syy
+</code></pre></div></div>
 
 <p>Next we want to install our first package: <code class="highlighter-rouge">reflector</code>.</p>
 
-<p><code class="highlighter-rouge">
-pacman -S reflector
-</code></p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pacman -S reflector
+</code></pre></div></div>
 
 <p>The following command will sort the five best mirrors based on your location:</p>
 
-<p><code class="highlighter-rouge">
-reflector --verbose -l 5 --sort rate --save /etc/pacman.d/mirrorlist
-</code></p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>reflector --verbose -l 5 --sort rate --save /etc/pacman.d/mirrorlist
+</code></pre></div></div>
 
 <p>Re-issue the sync command:</p>
 
-<p><code class="highlighter-rouge">
-pacman -Syy
-</code></p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pacman -Syy
+</code></pre></div></div>
 
 <h3 id="installing-the-base">Installing the base</h3>
 
@@ -258,9 +246,8 @@ pacman -Syy
 
 <p>Issue the following command:</p>
 
-<p><code class="highlighter-rouge">
-pacstrap /mnt base base-devel
-</code></p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pacstrap /mnt base base-devel
+</code></pre></div></div>
 
 <p>This will install lots of packages; it takes a few minutes. It took me <code class="highlighter-rouge">4:27.06</code> on my MacBook Air and about 2.5 minutes on my ThinkPad.</p>
 
@@ -270,9 +257,8 @@ pacstrap /mnt base base-devel
 
 <p>Issue the following command:</p>
 
-<p><code class="highlighter-rouge">
-genfstab -U -p /mnt &gt;&gt; /mnt/etc/fstab
-</code></p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>genfstab -U -p /mnt &gt;&gt; /mnt/etc/fstab
+</code></pre></div></div>
 
 <p>We can verify the entries with <code class="highlighter-rouge">cat /mnt/etc/fstab</code>, or <code class="highlighter-rouge">blkid /dev/sd#</code> where <code class="highlighter-rouge">#</code> is the partition number.</p>
 
@@ -280,18 +266,16 @@ genfstab -U -p /mnt &gt;&gt; /mnt/etc/fstab
 
 <p>To configure our new installation, we need to issue the <code class="highlighter-rouge">arch-chroot</code> command. This command is used as follows: <code class="highlighter-rouge">arch-chroot</code> followed by the new root directory as the first argument.</p>
 
-<p><code class="highlighter-rouge">
-root@archiso ~ # arch-chroot /mnt /bin/bash
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>root@archiso ~ # arch-chroot /mnt /bin/bash
 [root@archiso /]#
-</code></p>
+</code></pre></div></div>
 
 <p>We could pass in additional arguments to specify a particular shell, but here we are using <code class="highlighter-rouge">bash</code>.</p>
 
 <h3 id="configuring-locale-settings">Configuring locale settings</h3>
 
-<p><code class="highlighter-rouge">
-nano /etc/locale.gen
-</code></p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>nano /etc/locale.gen
+</code></pre></div></div>
 
 <p>Uncomment <code class="highlighter-rouge">en_US.UTF-8 UTF-8</code> for US English.</p>
 
@@ -299,65 +283,57 @@ nano /etc/locale.gen
 
 <p>Next we will create <code class="highlighter-rouge">/etc/locale.conf</code>:</p>
 
-<p><code class="highlighter-rouge">
-echo LANG=en_US.UTF-8 &gt; /etc/locale.conf
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>echo LANG=en_US.UTF-8 &gt; /etc/locale.conf
 export LANG=en_US.UTF-8
-</code></p>
+</code></pre></div></div>
 
 <p>Create the following file: <code class="highlighter-rouge">/etc/vconsole.conf</code> and add the following line:</p>
 
-<p><code class="highlighter-rouge">
-KEYMAP=us
-</code></p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>KEYMAP=us
+</code></pre></div></div>
 
 <p>To configure the time zone, we need to create a link to a file called <code class="highlighter-rouge">/etc/localtime</code>.</p>
 
 <p>The following command won’t work, we will do this in a later step, so skip the following command for now.</p>
 
-<p><code class="highlighter-rouge">
-ln -s /usr/share/zoneinfo/US/Eastern /etc/localtime
-</code></p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ln -s /usr/share/zoneinfo/US/Eastern /etc/localtime
+</code></pre></div></div>
 
 <p>This worked on my MacBook Air in VirtualBox, but in doing this on my Windows host in VirtualBox trying to link to the file <code class="highlighter-rouge">/etc/localtime</code> gave an error that the file already existed. Skipping this step on my ThinkPad was OK. Looking in the file, it seemed that UTC was already configured.</p>
 
 <h3 id="set-the-hardware-clock">Set the Hardware Clock</h3>
 
-<p><code class="highlighter-rouge">
-hwclock --systohc --utc
-</code></p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>hwclock --systohc --utc
+</code></pre></div></div>
 
 <h3 id="set-the-host-name-for-the-system">Set the Host Name for the System</h3>
 
 <p>I’m using the hostname <code class="highlighter-rouge">archthinkpad</code>, you can pick whatever host name you want.</p>
 
-<p><code class="highlighter-rouge">
-echo archthinkpad &gt; /etc/hostname
-</code></p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>echo archthinkpad &gt; /etc/hostname
+</code></pre></div></div>
 
 <h3 id="enable-multilib-repository">Enable Multilib Repository</h3>
 
 <p>Add the following to <code class="highlighter-rouge">/etc/pacman.conf</code>:</p>
 
-<p><code class="highlighter-rouge">
-[multilib]
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[multilib]
 Include = /etc/pacman.d/mirrorlist
-</code></p>
+</code></pre></div></div>
 
 <p>And then run</p>
 
-<p><code class="highlighter-rouge">
-pacman -Syy
-</code></p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pacman -Syy
+</code></pre></div></div>
 
 <h3 id="add-support-for-yaourt-package-tool">Add support for Yaourt Package Tool</h3>
 
 <p>Add the following to the end of <code class="highlighter-rouge">/etc/pacman.conf</code>:</p>
 
-<p><code class="highlighter-rouge">
-[archlinuxfr]
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[archlinuxfr]
 SigLevel = Never
 Server = http://repo.archlinux.fr/$arch
-</code></p>
+</code></pre></div></div>
 
 <p>Then run <code class="highlighter-rouge">pacman -Syy</code>.</p>
 
@@ -365,15 +341,13 @@ Server = http://repo.archlinux.fr/$arch
 
 <p>Run the “update system” command:</p>
 
-<p><code class="highlighter-rouge">
-pacman -Syu
-</code></p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pacman -Syu
+</code></pre></div></div>
 
 <h3 id="create-a-password-for-the-root-account">Create a password for the root account</h3>
 
-<p><code class="highlighter-rouge">
-passwd
-</code></p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>passwd
+</code></pre></div></div>
 
 <p>and enter a password for the root user.</p>
 
@@ -381,21 +355,18 @@ passwd
 
 <p>To add a new user we issue <code class="highlighter-rouge">useradd</code> along with primary and secondary groups. <code class="highlighter-rouge">wheel</code> group members will be able to issue commands prefixed with <code class="highlighter-rouge">sudo</code>.</p>
 
-<p><code class="highlighter-rouge">
-useradd -mg users -G wheel,storage,power -s /bin/bash brian
-</code></p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>useradd -mg users -G wheel,storage,power -s /bin/bash brian
+</code></pre></div></div>
 
 <p>Then set a password for this user:</p>
 
-<p><code class="highlighter-rouge">
-passwd brian
-</code></p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>passwd brian
+</code></pre></div></div>
 
 <h3 id="install-sudo-package">Install sudo Package</h3>
 
-<p><code class="highlighter-rouge">
-pacman -S sudo
-</code></p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pacman -S sudo
+</code></pre></div></div>
 
 <h3 id="configuring-a-sudo---adding-user-to-wheel-group">Configuring a sudo - adding user to wheel group</h3>
 
@@ -405,23 +376,20 @@ pacman -S sudo
 
 <p>When we run <code class="highlighter-rouge">visudo</code>, we might see the follwoing error:</p>
 
-<p><code class="highlighter-rouge">
-visudo: specified editor (vim) doesn't exist.
-</code></p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>visudo: specified editor (vim) doesn't exist.
+</code></pre></div></div>
 
 <p>Let’s install vim:</p>
 
-<p><code class="highlighter-rouge">
-pacman -S vim
-</code></p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pacman -S vim
+</code></pre></div></div>
 
 <p>Now we should be able to run <code class="highlighter-rouge">visudo</code>.</p>
 
 <p>We need to uncomment the following line:</p>
 
-<p><code class="highlighter-rouge">
-# %wheel ALL=(ALL) ALL
-</code></p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># %wheel ALL=(ALL) ALL
+</code></pre></div></div>
 
 <p>To do this, press the down arrow until we are on the line we need to uncomment, then press <code class="highlighter-rouge">i</code>, then remove the <code class="highlighter-rouge">#</code> and space. Next, press <code class="highlighter-rouge">esc</code> and then press <code class="highlighter-rouge">:</code> and then <code class="highlighter-rouge">x</code> and then press <code class="highlighter-rouge">ENTER</code>. That should save our changes. Arch Linux warns that this file ONLY be edited with <code class="highlighter-rouge">vim</code>.</p>
 
@@ -429,17 +397,15 @@ pacman -S vim
 
 <p>At this point the directions will fork based on your motherboard firmware. By default grub-install uses target x86_64-efi. If you don’t have a UEFI system you should use the following command:</p>
 
-<p><code class="highlighter-rouge">
-pacman -S grub
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pacman -S grub
 grub-install --target=i386-pc --recheck /dev/sdb
-</code></p>
+</code></pre></div></div>
 
 <p>If this works properly you should see the following:</p>
 
-<p><code class="highlighter-rouge">
-Installing for i386-pc platform.
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Installing for i386-pc platform.
 Installation finished. No error reported.
-</code></p>
+</code></pre></div></div>
 
 <blockquote>
   <p>–target=i386-pc instructs grub-install to install for BIOS systems only. It is recommended to always use this option to remove ambiguity in grub-install.</p>
@@ -449,9 +415,8 @@ Installation finished. No error reported.
 
 <p>Finally run the following command:</p>
 
-<p><code class="highlighter-rouge">
-grub-mkconfig -o /boot/grub/grub.cfg
-</code></p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>grub-mkconfig -o /boot/grub/grub.cfg
+</code></pre></div></div>
 
 <p>[Note: If you had a multi OS environment, you could install the “os-prober” package with “pacman -S os-prober” before running the “grub-mkconfig” command. Os-prober will detect other operating systems when generating the grub.cfg file.]</p>
 
@@ -459,12 +424,11 @@ grub-mkconfig -o /boot/grub/grub.cfg
 
 <p>Issue the following commands to exit:</p>
 
-<p><code class="highlighter-rouge">
-exit
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>exit
 umount /mnt/home
 umount /mnt
 reboot
-</code></p>
+</code></pre></div></div>
 
 <h3 id="boot-from-existing-os">Boot from existing OS</h3>
 
@@ -472,9 +436,8 @@ reboot
 
 <p>I got a strange error message at login:</p>
 
-<p><code class="highlighter-rouge">
-arch20815 login: [9.921142] piix4_smbus 0000:00:07.0: SMBus base address uninitialized - upgrade BIOS or use force_addr=0xaddr
-</code></p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>arch20815 login: [9.921142] piix4_smbus 0000:00:07.0: SMBus base address uninitialized - upgrade BIOS or use force_addr=0xaddr
+</code></pre></div></div>
 
 <p>Press <code class="highlighter-rouge">ENTER</code> to return to the login prompt.</p>
 
@@ -482,21 +445,18 @@ arch20815 login: [9.921142] piix4_smbus 0000:00:07.0: SMBus base address uniniti
 
 <p>We can check to see if this user was setup properly by running:</p>
 
-<p>```
-[brian@arch20815 ~]$ sudo whoami</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[brian@arch20815 ~]$ sudo whoami
 
-<p>We trust you have received the usual lecture from the local System Administrator. It usually boils down to these three things:</p>
+We trust you have received the usual lecture from the local System Administrator. It usually boils down to these three things:
 
-<div class="highlighter-rouge"><pre class="highlight"><code>#1) Respect the privacy of others.
-#2) Think before you type.
-#3) With great power comes great responsibility.
-</code></pre>
-</div>
+    #1) Respect the privacy of others.
+    #2) Think before you type.
+    #3) With great power comes great responsibility.
 
-<p>[sudo] password for brian:
+[sudo] password for brian:
 root
 [brian@arch20815 ~]$
-```</p>
+</code></pre></div></div>
 
 <h3 id="configuring-the-network">Configuring the Network</h3>
 
@@ -504,48 +464,42 @@ root
 
 <p>Run <code class="highlighter-rouge">sudo vi /etc/systemd/network/enp0s3.netork</code> and add the following to this file:</p>
 
-<p>```
-[Match]
-Name=en*</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[Match]
+Name=en*
 
-<p>[Network]
+[Network]
 DHCP=yes
-```</p>
+</code></pre></div></div>
 
 <p>Then we need to run the following commands:</p>
 
-<p><code class="highlighter-rouge">
-sudo systemctl restart systemd-networkd
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo systemctl restart systemd-networkd
 sudo systemctl enable systemd-networkd
-</code></p>
+</code></pre></div></div>
 
 <p>Next issue the following command:</p>
 
-<p><code class="highlighter-rouge">
-sudo vi /etc/resolv.conf
-</code></p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo vi /etc/resolv.conf
+</code></pre></div></div>
 
 <p>And add the following to this file:</p>
 
-<p><code class="highlighter-rouge">
-nameserver 8.8.8.8
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>nameserver 8.8.8.8
 nameserver 8.8.4.4
-</code></p>
+</code></pre></div></div>
 
 <p>Next we can check connectivity:</p>
 
-<p><code class="highlighter-rouge">
-ip a s
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ip a s
 ping -c 3 www.google.com
-</code></p>
+</code></pre></div></div>
 
 <p>We should see that we have been assigned an IP address and that we can ping google.com.</p>
 
 <h3 id="run-a-full-system-update">Run a full System update</h3>
 
-<p><code class="highlighter-rouge">
-sudo pacman -Syu
-</code></p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo pacman -Syu
+</code></pre></div></div>
 
 <h3 id="installing-the-x-environment">Installing the X Environment</h3>
 
@@ -553,50 +507,43 @@ sudo pacman -Syu
 
 <p>The next step in the tutorial is to run:</p>
 
-<p><code class="highlighter-rouge">
-sudo pacman -S xorg-server xorg-xinit xorg-utils xorg-server-utils mesa xorg-twm xterm xorg-xclock
-</code></p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo pacman -S xorg-server xorg-xinit xorg-utils xorg-server-utils mesa xorg-twm xterm xorg-xclock
+</code></pre></div></div>
 
 <p>But this will result in:</p>
 
-<p><code class="highlighter-rouge">
-error: target not found: xorg-utils
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>error: target not found: xorg-utils
 error: target not found: xorg-server-utils
-</code></p>
+</code></pre></div></div>
 
 <p>It seems that these packages have been deprecated. I think a solution to this is to run:</p>
 
-<p><code class="highlighter-rouge">
-sudo pacman -S xorg-apps
-</code></p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo pacman -S xorg-apps
+</code></pre></div></div>
 
 <p>and then install the remaining packages:</p>
 
-<p><code class="highlighter-rouge">
-sudo pacman -S xorg-server xorg-xinit mesa xorg-twm xterm xorg-xclock
-</code></p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo pacman -S xorg-server xorg-xinit mesa xorg-twm xterm xorg-xclock
+</code></pre></div></div>
 
 <p>Select option <code class="highlighter-rouge">1</code> (don’t select the options that include the word nvidia).</p>
 
 <p>Next we need to install <code class="highlighter-rouge">linux-headers</code>:</p>
 
-<p><code class="highlighter-rouge">
-sudo pacman -S linux-headers
-</code></p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo pacman -S linux-headers
+</code></pre></div></div>
 
 <p>Next we need to install some VirtualBox packages:</p>
 
-<p><code class="highlighter-rouge">
-sudo pacman -S virtualbox-guest-utils virtualbox-guest-dkms
-</code></p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo pacman -S virtualbox-guest-utils virtualbox-guest-dkms
+</code></pre></div></div>
 
 <p>The tutorial didn’t mention the <code class="highlighter-rouge">linux-headers</code> package, but the error message that comes up if you skip this step say that this package is needed.</p>
 
-<p><code class="highlighter-rouge">xorg-server-utils</code> seems to have been removed, but it was a meta-package that simply included the following:
-<code class="highlighter-rouge">
-xorg-iceauth xorg-sessreg xorg-xcmsdb xorg-xbacklight xorg-xgamma xorg-xhost xorg-xinput xorg-xmodmap xorg-xrandr xorg-xrdb xorg-xrefresh xorg-xset xorg-xsetroot
-</code>
-Installing these packages individually did not help.</p>
+<p><code class="highlighter-rouge">xorg-server-utils</code> seems to have been removed, but it was a meta-package that simply included the following:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>xorg-iceauth xorg-sessreg xorg-xcmsdb xorg-xbacklight xorg-xgamma xorg-xhost xorg-xinput xorg-xmodmap xorg-xrandr xorg-xrdb xorg-xrefresh xorg-xset xorg-xsetroot
+</code></pre></div></div>
+<p>Installing these packages individually did not help.</p>
 
 <p>This does a full install of xorg (reinstalling many packages I just installed). After running this command, running <code class="highlighter-rouge">startx</code> gives no errors and lets me enter the X environment.</p>
 
@@ -604,61 +551,52 @@ Installing these packages individually did not help.</p>
 
 <p>Next, let’s install <code class="highlighter-rouge">GNOME</code> desktop. Issue the following command:</p>
 
-<p><code class="highlighter-rouge">
-sudo pacman -S gnome gnome-extra gdm
-</code></p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo pacman -S gnome gnome-extra gdm
+</code></pre></div></div>
 
 <p>Accept all of the defaults and then confirm by pressing <code class="highlighter-rouge">Y</code>.</p>
 
 <h3 id="installing-networking-tools">Installing Networking Tools</h3>
 
-<p><code class="highlighter-rouge">
-sudo pacman -S net-tools
-</code></p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo pacman -S net-tools
+</code></pre></div></div>
 
 <h3 id="installing-popular-packages">Installing popular packages</h3>
 
-<p><code class="highlighter-rouge">
-sudo pacman -S pulseaudio pulseaudio-alsa pavucontrol gnome-terminal firefox flashplugin vlc deluge smplayer audacious qmmp gimp xfburn gedit gnome-system-monitor
-</code></p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo pacman -S pulseaudio pulseaudio-alsa pavucontrol gnome-terminal firefox flashplugin vlc deluge smplayer audacious qmmp gimp xfburn gedit gnome-system-monitor
+</code></pre></div></div>
 
 <h3 id="installing-codecs-for-audio-and-video">Installing codecs for audio and video</h3>
 
-<p><code class="highlighter-rouge">
-sudo pacman -S a52dec faac faad2 flac jasper lame libdca libdv libmad libmpeg2 libtheora libvorbis libxv wavpack x264 xvidcore
-</code></p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo pacman -S a52dec faac faad2 flac jasper lame libdca libdv libmad libmpeg2 libtheora libvorbis libxv wavpack x264 xvidcore
+</code></pre></div></div>
 
 <h3 id="install-yaourt">Install Yaourt</h3>
 
-<p><code class="highlighter-rouge">
-sudo pacman -S yaourt
-</code></p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo pacman -S yaourt
+</code></pre></div></div>
 
 <p><strong>NEVER run yaourt with sudo or as root</strong></p>
 
 <p>Finally, enable GNOME to start automatically at boot:</p>
 
-<p><code class="highlighter-rouge">
-sudo systemctl enable gdm
-</code></p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo systemctl enable gdm
+</code></pre></div></div>
 
 <p>The last issue I had was getting GNOME Desktop to display in full-screen in VirtualBox. To do this, click on the Devices Tab and then Insert Guest Additions Image.</p>
 
-<p><code class="highlighter-rouge">
-reboot
-</code></p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>reboot
+</code></pre></div></div>
 
 <p>Login with the user account that you created. At this point, trying to open Terminal will probably not work. This is because of an issue mentioned earlier about a locale file. Let’s look at <code class="highlighter-rouge">/etc/locale.conf</code>:</p>
 
-<p><code class="highlighter-rouge">
-cat /etc/locale.conf
-</code></p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cat /etc/locale.conf
+</code></pre></div></div>
 
 <p>We just need to make sure that the language we want is uncommented in <code class="highlighter-rouge">/etc/locale.gen</code>. We did this previously. Now we need to run the following command:</p>
 
-<p><code class="highlighter-rouge">
-sudo locale-gen
-</code></p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo locale-gen
+</code></pre></div></div>
 
 <p>This should allow us to access the terminal.</p>
 
@@ -670,18 +608,16 @@ sudo locale-gen
 
 <p>We need to run the following command to bring it up:</p>
 
-<p><code class="highlighter-rouge">
-sudo ip link set &lt;the code that starts with w&gt; up
-</code></p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo ip link set &lt;the code that starts with w&gt; up
+</code></pre></div></div>
 
 <p>If we go to “Settings” we will see an error that says “NetworkManager needs to be running.”</p>
 
 <p>To get NetworkManager running, issue the following commands:</p>
 
-<p><code class="highlighter-rouge">
-sudo systemctl enable NetworkManager.service
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo systemctl enable NetworkManager.service
 sudo systemctl start NetworkManager.service
-</code></p>
+</code></pre></div></div>
 
 <p>This will prompt you for authentication, then you can go back to <code class="highlighter-rouge">Settings &gt; Network</code> and you should be able to find any available Wi-Fi networks.</p>
 
@@ -693,23 +629,20 @@ sudo systemctl start NetworkManager.service
 
 <p>Yaourt gives us a useful flag to search packages:</p>
 
-<p><code class="highlighter-rouge">
-yaourt -Ss search_term1 search_term2
-</code></p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>yaourt -Ss search_term1 search_term2
+</code></pre></div></div>
 
 <p>This returns a list of packages which match search terms either in their title or description. When you find the right package you can copy the exact name and then download it with:</p>
 
-<p><code class="highlighter-rouge">
-yaourt -S package_name
-</code></p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>yaourt -S package_name
+</code></pre></div></div>
 
 <p>Let’s start with nice custom theme, numix.</p>
 
 <p>Run the following:</p>
 
-<p><code class="highlighter-rouge">
-yaourt -Ss numix
-</code></p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>yaourt -Ss numix
+</code></pre></div></div>
 
 <p>We will see many packages, and there are three that we should install:</p>
 
@@ -721,29 +654,25 @@ yaourt -Ss numix
 
 <p>The installations process for <code class="highlighter-rouge">numix-gtk-theme</code> is quite long. You need to confirm <code class="highlighter-rouge">Yes</code> and it will also ask you the following:</p>
 
-<p><code class="highlighter-rouge">
-Edit PKGBUILD with:
-</code></p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Edit PKGBUILD with:
+</code></pre></div></div>
 
 <p>Here you can type <code class="highlighter-rouge">nano</code> and press <code class="highlighter-rouge">ENTER</code>. It will then show you a file in <code class="highlighter-rouge">nano</code> or the editor you select. You can press <code class="highlighter-rouge">Ctrl-X</code> and the installation script will continue running.</p>
 
 <p>You will also see the following message before being prompted to select an editor:</p>
 
-<p><code class="highlighter-rouge">
-Please add $VISUAL to your environment variables.
-</code></p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Please add $VISUAL to your environment variables.
+</code></pre></div></div>
 
 <p>Let’s do that now so we are not prompted to do it later:</p>
 
-<p><code class="highlighter-rouge">
-sudo nano ~/.bashrc
-</code></p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo nano ~/.bashrc
+</code></pre></div></div>
 
 <p>Add the following line to the end of the file:</p>
 
-<p><code class="highlighter-rouge">
-export VISUAL="nano"
-</code></p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>export VISUAL="nano"
+</code></pre></div></div>
 
 <p>You could also set <code class="highlighter-rouge">VISUAL="vim"</code> or some other editor.</p>
 
@@ -755,9 +684,8 @@ export VISUAL="nano"
 
 <p>Next you need to install the following package:</p>
 
-<p><code class="highlighter-rouge">
-yaourt -S chrome-gnome-shell-git
-</code></p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>yaourt -S chrome-gnome-shell-git
+</code></pre></div></div>
 
 <p>Now refresh the GNOME Shell Extensions page and the blue message should go away. Here are the extensions I use:</p>
 
@@ -779,20 +707,17 @@ yaourt -S chrome-gnome-shell-git
 
 <p>I like to use Screenfetch, a package that prints out ASCII art for your distro and some customizable system information.</p>
 
-<p><code class="highlighter-rouge">
-yaourt -S screenfetch
-</code></p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>yaourt -S screenfetch
+</code></pre></div></div>
 
 <p>Now edit <code class="highlighter-rouge">~/.bashrc</code> by adding the following line at the bottom of the file:</p>
 
-<p><code class="highlighter-rouge">
-screenfetch
-</code></p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>screenfetch
+</code></pre></div></div>
 
 <p>Screefetch can be further customized, check out <code class="highlighter-rouge">man screenfetch</code> for more options. For example, you can exlude certain lines about system information or add custom lines like the model of your PC, etc:</p>
 
-<p><code class="highlighter-rouge">
-                  -`                 
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>                  -`                 
                  .o+`                 brian@archthinkpad
                 `ooo/                 OS: Arch Linux
                `+oooo:                Kernel: x86_64 Linux 4.12.5-1-ARCH
@@ -803,16 +728,17 @@ screenfetch
           `/++++++++++++++:           DE: GNOME
          `/+++ooooooooooooo/`         WM: GNOME Shell
         ./ooosssso++osssssso+`        GTK Theme: Numix [GTK2/3]
-       .oossssso-</code><code class="highlighter-rouge">/ossssss+</code>       Icon Theme: Numix-Circle
+       .oossssso-````/ossssss+`       Icon Theme: Numix-Circle
       -osssssso.      :ssssssso.      Font: Cantarell 11
      :osssssss/        osssso+++.     CPU: Intel Core i5-3320M @ 4x 3.3GHz [44.0°C]
     /ossssssss/        +ssssooo/-     GPU: intel
-  <code class="highlighter-rouge">/ossssso+/:-        -:/+osssso+-   RAM: 4315MiB / 7685MiB
-  </code>+sso+:-<code class="highlighter-rouge">                 </code>.-/+oso:
- <code class="highlighter-rouge">++:.                           </code>-/+/
-.<code class="highlighter-rouge">                                 </code>/</p>
+  `/ossssso+/:-        -:/+osssso+-   RAM: 4315MiB / 7685MiB
+  `+sso+:-`                 `.-/+oso:
+ `++:.                           `-/+/
+.`                                 `/
 
-<p>```</p>
+
+</code></pre></div></div>
 
 <h4 id="quick-note-on-terminal-colors">Quick Note on Terminal Colors</h4>
 
@@ -865,15 +791,13 @@ screenfetch
   <li>Dropbox</li>
 </ul>
 
-<p><code class="highlighter-rouge">
-yaourt -S dropbox
-</code></p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>yaourt -S dropbox
+</code></pre></div></div>
 
 <p>Run the following command:</p>
 
-<p><code class="highlighter-rouge">
-dropbox
-</code></p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>dropbox
+</code></pre></div></div>
 
 <p>And then follow the dialogue to sign into your Dropbox account. You will see a Dropbox folder in the File Manager.</p>
 
@@ -883,9 +807,8 @@ dropbox
 
 <p>You can get access to Google Drive by going into:</p>
 
-<p><code class="highlighter-rouge">
-Settings &gt; Online Accounts &gt; Google
-</code></p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Settings &gt; Online Accounts &gt; Google
+</code></pre></div></div>
 
 <p>If you have <code class="highlighter-rouge">Files</code> set to <code class="highlighter-rouge">ON</code>, you will find your Google Drive Folder in the side bar of the File Viewer. Clicking on the icon mounts your Google Drive and gives you access to the files.</p>
 
@@ -895,23 +818,20 @@ Settings &gt; Online Accounts &gt; Google
 
 <p>Internet Relay Chat (IRC) is an easy way to start talking to people in real-time about any topic you can think of. Hexchat is a popular GUI client for IRC. Here is how to install hexchat:</p>
 
-<p><code class="highlighter-rouge">
-sudo pacman -S hexchat
-</code></p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo pacman -S hexchat
+</code></pre></div></div>
 
 <p>Once you have installed hexchat, you will want to register a nickname. <a href="https://freenode.net/kb/answer/registration">This article</a> says that the steps for registering a nickname are to:</p>
 
 <p>Send the following message to <code class="highlighter-rouge">freenode</code> (replace <code class="highlighter-rouge">some_password</code> with a secure password of your choice and <code class="highlighter-rouge">youremail@example.com</code> with your email address):</p>
 
-<p><code class="highlighter-rouge">
-/msg NickServ REGISTER some_password youremail@example.com
-</code></p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/msg NickServ REGISTER some_password youremail@example.com
+</code></pre></div></div>
 
 <p>After you send this message, check your email and you will see instructions to confirm your email that look like this:</p>
 
-<p><code class="highlighter-rouge">
-/msg NickServ VERIFY REGISTER &lt;your_name&gt; &lt;some_code_they_give_you&gt;
-</code></p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/msg NickServ VERIFY REGISTER &lt;your_name&gt; &lt;some_code_they_give_you&gt;
+</code></pre></div></div>
 
 <p>This should confirm your nickname. Now you can start chatting on channels. Press <code class="highlighter-rouge">Alt + S</code>, and then <code class="highlighter-rouge">J</code>, and then type the name of the channel you want to join.</p>
 
@@ -919,9 +839,8 @@ sudo pacman -S hexchat
 
 <p>I setup TorGuard VPN service by installing:</p>
 
-<p><code class="highlighter-rouge">
-yaourt -S torguard
-</code></p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>yaourt -S torguard
+</code></pre></div></div>
 
 <h2 id="setting-up-development-tools">Setting Up Development Tools</h2>
 
@@ -929,9 +848,8 @@ yaourt -S torguard
 
 <p>My preferred text editor is Atom:</p>
 
-<p><code class="highlighter-rouge">
-sudo pacman -S atom
-</code></p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo pacman -S atom
+</code></pre></div></div>
 
 <p>Spell checker didn’t seem to be working for me, and this seems to be a <a href="https://github.com/atom/spell-check/issues/129">known issue</a>, so I recommend you install the <code class="highlighter-rouge">atom/spell-checker</code> package if you like to use atom and want spell checking.</p>
 
@@ -941,17 +859,15 @@ sudo pacman -S atom
 
 <p><em>Skip this step if you are installing Arch Linux as guest OS in a VirtualBox (you can’t run a virtual machine in a virtual machine).</em></p>
 
-<p><code class="highlighter-rouge">
-sudo pacman -S virtualbox
-</code></p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo pacman -S virtualbox
+</code></pre></div></div>
 
 <p>You will see a message that says:</p>
 
-<p><code class="highlighter-rouge">
-:: There are 2 providers available for VIRTUALBOX-HOST-MODULES
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>:: There are 2 providers available for VIRTUALBOX-HOST-MODULES
 :: Repository community
    1) virtualbox-host-dkms 2) virtualbox-host-modules-arch
-</code></p>
+</code></pre></div></div>
 
 <p><strong>Select option 2, continue the installation process and then reboot.</strong></p>
 
@@ -959,9 +875,8 @@ sudo pacman -S virtualbox
 
 <p>You will probably want to use a BitTorrent client to download ISO images for virtual machines you want to run. Deluge works well for this, and we already downloaded it during setup. We can add one more package for a theme that Deluge uses:</p>
 
-<p><code class="highlighter-rouge">
-yaourt -S gtk-engine-murrine
-</code></p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>yaourt -S gtk-engine-murrine
+</code></pre></div></div>
 
 <p>Now grab a torrent link or file for an OS you want to download and add it to Deluge.</p>
 
@@ -973,62 +888,53 @@ yaourt -S gtk-engine-murrine
 
 <p>Here’s a walkthrough of the steps to get <code class="highlighter-rouge">npm</code> setup correctly.</p>
 
-<p><code class="highlighter-rouge">
-sudo pacman -S npm
-</code></p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo pacman -S npm
+</code></pre></div></div>
 
 <p>Next run:</p>
 
-<p><code class="highlighter-rouge">
-npm config get prefix
-</code></p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>npm config get prefix
+</code></pre></div></div>
 
 <p>The output of this command is probably:</p>
 
-<p><code class="highlighter-rouge">
-/usr
-</code></p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/usr
+</code></pre></div></div>
 
 <p>If this is the case, we MUST follow the following steps (option 2 from <a href="https://docs.npmjs.com/getting-started/fixing-npm-permissions">this article</a>:</p>
 
-<p><code class="highlighter-rouge">
-mkdir ~/.npm-global
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mkdir ~/.npm-global
 npm config set prefix '~/.npm-global'
-</code></p>
+</code></pre></div></div>
 
 <p>If you don’t already have a <code class="highlighter-rouge">~/.profile</code> file, make one, and then add the following line:</p>
 
-<p><code class="highlighter-rouge">
-export PATH=~/.npm-global/bin:$PATH
-</code></p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>export PATH=~/.npm-global/bin:$PATH
+</code></pre></div></div>
 
 <p>Then run:</p>
 
-<p><code class="highlighter-rouge">
-source ~/.profile
-</code></p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>source ~/.profile
+</code></pre></div></div>
 
 <p>This will “refresh” <code class="highlighter-rouge">~/.profile</code> so that using the <code class="highlighter-rouge">npm</code> command will work without needing sudo.</p>
 
 <p>Next we can test that <code class="highlighter-rouge">npm</code> works by trying to install a package:</p>
 
-<p><code class="highlighter-rouge">
-npm install -g jshint
-</code></p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>npm install -g jshint
+</code></pre></div></div>
 
 <p>This should install the package with no errors.</p>
 
 <h3 id="heroku">Heroku</h3>
 
-<p><code class="highlighter-rouge">
-yaourt -S heroku-cli
-</code></p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>yaourt -S heroku-cli
+</code></pre></div></div>
 
 <p>Then run:</p>
 
-<p><code class="highlighter-rouge">
-heroku keys:add
-</code></p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>heroku keys:add
+</code></pre></div></div>
 
 <p>and then type <code class="highlighter-rouge">yes</code> at the prompt. This will your computer’s public key to your Heroku account.</p>
 
@@ -1038,48 +944,41 @@ heroku keys:add
 
 <h3 id="redis">Redis</h3>
 
-<p><code class="highlighter-rouge">
-sudo pacman -S redis
-</code></p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo pacman -S redis
+</code></pre></div></div>
 
 <p>Next, start and enable  <code class="highlighter-rouge">redis.service</code></p>
 
-<p><code class="highlighter-rouge">
-sudo systemctl start redis.service
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo systemctl start redis.service
 sudo systemctl enable redis.service
-</code></p>
+</code></pre></div></div>
 
 <h3 id="ssh">SSH</h3>
 
-<p><code class="highlighter-rouge">
-sudo pacman -S openssh
-</code></p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo pacman -S openssh
+</code></pre></div></div>
 
-<h3 id="autoenv-githubhttpsgithubcomkennethreitzautoenv">autoenv (<a href="https://github.com/kennethreitz/autoenv">GitHub</a>)</h3>
+<h3 id="autoenv-github">autoenv (<a href="https://github.com/kennethreitz/autoenv">GitHub</a>)</h3>
 
-<p><code class="highlighter-rouge">
-yaourt -S autoenv
-</code></p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>yaourt -S autoenv
+</code></pre></div></div>
 
 <p>You need to source activate.sh in your bashrc afterwards:</p>
 
-<p><code class="highlighter-rouge">
-echo 'source /usr/share/autoenv/activate.sh' &gt;&gt; ~/.bashrc
-</code></p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>echo 'source /usr/share/autoenv/activate.sh' &gt;&gt; ~/.bashrc
+</code></pre></div></div>
 
 <h3 id="ruby-and-jekyll">Ruby and Jekyll</h3>
 
 <p>I use Jekyll for my personal site and blog, which is a static site generator written in Ruby. To start using Jekyll we need to install a ruby gem, and to install the gem we will need to first install ruby. Here is the <a href="https://wiki.archlinux.org/index.php/ruby">ruby page from the Arch Wiki</a>.</p>
 
-<p><code class="highlighter-rouge">
-sudo pacman -S ruby
-</code></p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo pacman -S ruby
+</code></pre></div></div>
 
 <p>Next we can install the Jekyll gem:</p>
 
-<p><code class="highlighter-rouge">
-gem install jekyll bundler
-</code></p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gem install jekyll bundler
+</code></pre></div></div>
 
 <p>It should say something like “20 gems installed” if everything was successful. You can read more about Jekyll <a href="https://jekyllrb.com/">here</a>.</p>
 
@@ -1087,9 +986,8 @@ gem install jekyll bundler
 
 <p>Before we use the Jekyll gem, we need to add the following to our <code class="highlighter-rouge">~/.bashrc</code> file:</p>
 
-<p><code class="highlighter-rouge">
-PATH="$(ruby -e 'print Gem.user_dir')/bin:$PATH"
-</code></p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>PATH="$(ruby -e 'print Gem.user_dir')/bin:$PATH"
+</code></pre></div></div>
 
 <p>This will allow you to run Jekyll commands.</p>
 
@@ -1097,9 +995,8 @@ PATH="$(ruby -e 'print Gem.user_dir')/bin:$PATH"
 
 <p>In the installation pIssuesrocess, the latest versions of Python has been installed (3.6.2 at the time of writing this tutorial). We need to get <code class="highlighter-rouge">pip</code>:</p>
 
-<p><code class="highlighter-rouge">
-yaourt -S python-pip
-</code></p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>yaourt -S python-pip
+</code></pre></div></div>
 
 <p>Here’s <a href="https://docs.python.org/3/library/venv.html">an article from the Python documentation</a> that covers creating virtual environments.</p>
 
@@ -1113,32 +1010,28 @@ The basic usage is like so:
 Using virtualenv:</p>
 </blockquote>
 
-<p><code class="highlighter-rouge">
-virtualenv &lt;DIR&gt;
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>virtualenv &lt;DIR&gt;
 source &lt;DIR&gt;/bin/activate
-</code></p>
+</code></pre></div></div>
 
 <blockquote>
   <p>Using venv:</p>
 </blockquote>
 
-<p><code class="highlighter-rouge">
-python3 -m venv &lt;DIR&gt;
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>python3 -m venv &lt;DIR&gt;
 source &lt;DIR&gt;/bin/activate
-</code>
-For more information, see the virtualenv docs or the venv docs.</p>
+</code></pre></div></div>
+<p>For more information, see the virtualenv docs or the venv docs.</p>
 
 <h4 id="jupyter-notebook-and-ipython-notebook">Jupyter Notebook and IPython Notebook</h4>
 
 <p>IPython notebooks (also known as Jupyter notebooks), provide a nice environment for combining python runtime environments, Markdown, images, graphs and other interactive Python tools such as Bokeh. You can install both Jupyter Notebooks and IPython Notebooks:</p>
 
-<p><code class="highlighter-rouge">
-yaort -S jupyter-notebook
-</code></p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>yaort -S jupyter-notebook
+</code></pre></div></div>
 
-<p><code class="highlighter-rouge">
-yaourt -S ipython2-notebook
-</code></p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>yaourt -S ipython2-notebook
+</code></pre></div></div>
 
 <p>You can launch either of these with <code class="highlighter-rouge">jupyter notebook</code> or <code class="highlighter-rouge">ipython notebook</code> from the terminal.</p>
 
@@ -1150,136 +1043,121 @@ yaourt -S ipython2-notebook
 
 <h3 id="postgresql">PostgreSQL</h3>
 
-<p><code class="highlighter-rouge">
-sudo pacman -S postgresql
-</code></p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo pacman -S postgresql
+</code></pre></div></div>
 
-<p><code class="highlighter-rouge">
-sudo -u postgres -i
-</code></p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo -u postgres -i
+</code></pre></div></div>
 
 <p>This switches you to the PostgreSQL user.</p>
 
 <p>Before PostgreSQL can function correctly, the database cluster must be initialized:</p>
 
-<p><code class="highlighter-rouge">
-initdb --locale $LANG -E UTF8 -D '/var/lib/postgres/data'
-</code></p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>initdb --locale $LANG -E UTF8 -D '/var/lib/postgres/data'
+</code></pre></div></div>
 
 <p>You should see the following:</p>
 
-<p>```
-[postgres@archthinkpad ~]$ initdb –locale $LANG -E UTF8 -D ‘/var/lib/postgres/data’
-The files belonging to this database system will be owned by user “postgres”.
-This user must also own the server process.</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[postgres@archthinkpad ~]$ initdb --locale $LANG -E UTF8 -D '/var/lib/postgres/data'
+The files belonging to this database system will be owned by user "postgres".
+This user must also own the server process.
 
-<p>The database cluster will be initialized with locale “en_US.UTF-8”.
-The default text search configuration will be set to “english”.</p>
+The database cluster will be initialized with locale "en_US.UTF-8".
+The default text search configuration will be set to "english".
 
-<p>Data page checksums are disabled.</p>
+Data page checksums are disabled.
 
-<p>fixing permissions on existing directory /var/lib/postgres/data … ok
-creating subdirectories … ok
-selecting default max_connections … 100
-selecting default shared_buffers … 128MB
-selecting dynamic shared memory implementation … posix
-creating configuration files … ok
-running bootstrap script … ok
-performing post-bootstrap initialization … ok
-syncing data to disk … ok</p>
+fixing permissions on existing directory /var/lib/postgres/data ... ok
+creating subdirectories ... ok
+selecting default max_connections ... 100
+selecting default shared_buffers ... 128MB
+selecting dynamic shared memory implementation ... posix
+creating configuration files ... ok
+running bootstrap script ... ok
+performing post-bootstrap initialization ... ok
+syncing data to disk ... ok
 
-<p>WARNING: enabling “trust” authentication for local connections
+WARNING: enabling "trust" authentication for local connections
 You can change this by editing pg_hba.conf or using the option -A, or
-–auth-local and –auth-host, the next time you run initdb.</p>
+--auth-local and --auth-host, the next time you run initdb.
 
-<p>Success. You can now start the database server using:</p>
+Success. You can now start the database server using:
 
-<div class="highlighter-rouge"><pre class="highlight"><code>pg_ctl -D /var/lib/postgres/data -l logfile start ``` Now type `exit` to return to your regular user.
-</code></pre>
-</div>
+    pg_ctl -D /var/lib/postgres/data -l logfile start
+</code></pre></div></div>
+<p>Now type <code class="highlighter-rouge">exit</code> to return to your regular user.</p>
 
 <p>Next, start and enable <code class="highlighter-rouge">postgresql.service</code> as root:</p>
 
-<p><code class="highlighter-rouge">
-[brian@archthinkpad ~]$ sudo systemctl start postgresql.service
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[brian@archthinkpad ~]$ sudo systemctl start postgresql.service
 [sudo] password for brian:
 [brian@archthinkpad ~]$ sudo systemctl enable postgresql.service
 Created symlink /etc/systemd/system/multi-user.target.wants/postgresql.service → /usr/lib/systemd/system/postgresql.service.
 [brian@archthinkpad ~]$
-</code></p>
+</code></pre></div></div>
 
 <p>See the <a href="https://wiki.archlinux.org/index.php/PostgreSQL">Arch Wiki article on PostgreSQL</a> for more information.</p>
 
 <h3 id="tmux">tmux</h3>
 
-<p><code class="highlighter-rouge">
-sudo pacman -S tmux
-</code></p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo pacman -S tmux
+</code></pre></div></div>
 
 <h3 id="tree">tree</h3>
 
-<p><code class="highlighter-rouge">
-sudo pacman -S tree
-</code></p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo pacman -S tree
+</code></pre></div></div>
 
 <h3 id="languages-and-input-sources">Languages and Input Sources</h3>
 
 <p>Here is how to add support for Chinese characters and also Chinese pinyin input:</p>
 
-<p><code class="highlighter-rouge">
-yaourt -S adobe-source-han-sans-cn-fonts
-</code></p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>yaourt -S adobe-source-han-sans-cn-fonts
+</code></pre></div></div>
 
 <p>This will make Chinese characters visible. In order to type Chinese using the pinyin input method, run the following commands:</p>
 
-<p><code class="highlighter-rouge">
-sudo pacman -S ibus
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo pacman -S ibus
 sudo pacman -S ibus-libpinyin
-</code></p>
+</code></pre></div></div>
 
 <p>可以打汉字了！其它语言和文字packages可以参考<a href="">这个Arch Wiki文章</a>。</p>
 
-<p>Next you can go into:
-<code class="highlighter-rouge">
-Settings &gt; Region &amp; Language &gt; Input Source &gt; + &gt; Other
-</code>
-Select Chinese (Intelligent Pin Yin) from the list and you should see a language menu in the top bar. At this point I was able to see both English and Chinese in Language menu in the top bar, but the Chinese pinyin only worked after rebooting.</p>
+<p>Next you can go into:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Settings &gt; Region &amp; Language &gt; Input Source &gt; + &gt; Other
+</code></pre></div></div>
+<p>Select Chinese (Intelligent Pin Yin) from the list and you should see a language menu in the top bar. At this point I was able to see both English and Chinese in Language menu in the top bar, but the Chinese pinyin only worked after rebooting.</p>
 
 <h3 id="spotify">Spotify</h3>
 
 <p>Get some tunes going with the Spotfy app. It is not officially supported, but it seems to work alright. Facebook login did not work for me. You can create a new account with your existing email like this:</p>
 
-<p><code class="highlighter-rouge">
-youremail+spotify@email.com
-</code></p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>youremail+spotify@email.com
+</code></pre></div></div>
 
 <p>Using my main email to sign up for a new account didn’t work because that email was linked to the Facebook login.</p>
 
-<p><code class="highlighter-rouge">
-yaourt -S spotify
-</code></p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>yaourt -S spotify
+</code></pre></div></div>
 
 <h3 id="word-processing-libre-office">Word Processing (Libre Office)</h3>
 
 <p>Libre Office is an open-source Office Suite similar in functionality to Microsoft Word.</p>
 
-<p><code class="highlighter-rouge">
-sudo pacman -S libreoffice-fresh
-</code></p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo pacman -S libreoffice-fresh
+</code></pre></div></div>
 
 <p>You can also install any language packs you may need for Libre Office:</p>
 
-<p><code class="highlighter-rouge">
-yaourt -S libreoffice-fresh-zh-CN
-</code></p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>yaourt -S libreoffice-fresh-zh-CN
+</code></pre></div></div>
 
 <h3 id="disk-usage-visualizations">Disk Usage Visualizations</h3>
 
 <p>You can get disk usage with the <code class="highlighter-rouge">du</code> command. There are other programs for disk space visualizations, so far I have found <code class="highlighter-rouge">gdmap</code> and <code class="highlighter-rouge">filelight</code> to be helpful. Both are available in the AUR:</p>
 
-<p><code class="highlighter-rouge">
-yaourt -S gdmap filelight
-</code></p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>yaourt -S gdmap filelight
+</code></pre></div></div>
 
 <h3 id="sign-up-for-the-arch-wiki">Sign up for the Arch Wiki</h3>
 
@@ -1295,9 +1173,8 @@ yaourt -S gdmap filelight
 
 <p>You can check which session type you are using with the following command:</p>
 
-<p><code class="highlighter-rouge">
-echo $XDG_SESSION_TYPE
-</code></p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>echo $XDG_SESSION_TYPE
+</code></pre></div></div>
 
 <p>and you should either see <code class="highlighter-rouge">x11</code> or <code class="highlighter-rouge">wayland</code>.</p>
 
@@ -1305,9 +1182,8 @@ echo $XDG_SESSION_TYPE
 
 <p>You can configure keyboard shortcuts by going into:</p>
 
-<p><code class="highlighter-rouge">
-Settings &gt; Keyboard
-</code></p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Settings &gt; Keyboard
+</code></pre></div></div>
 
 <p>Search for or find the setting that says “Hide all normal windows”. I set mine to <code class="highlighter-rouge">Shift + Alt + D</code>. You can configure other keyboard shortcuts here.</p>
 
@@ -1315,9 +1191,8 @@ Settings &gt; Keyboard
 
 <p>If you are coming from Mac or Windows, you might be used to using f.lux to dim the blue colors from your screen. There are few options for Linux such as Red Shift and xflux. I finf that in GNOME, using the built in Nigh Light works the best for reduce eye strain. Just go into:</p>
 
-<p><code class="highlighter-rouge">
-Settings &gt; Displays
-</code></p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Settings &gt; Displays
+</code></pre></div></div>
 
 <p>and click on Night Light. Like flux, you can set it for regular hours. There aren’t as many modes or options, but it does a pretty goog job of what I need it to do.</p>
 
@@ -1325,15 +1200,13 @@ Settings &gt; Displays
 
 <p>To view all available commands, run the following command:</p>
 
-<p><code class="highlighter-rouge">
-compgen -c
-</code></p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>compgen -c
+</code></pre></div></div>
 
 <p>To view all installed packages, run:</p>
 
-<p><code class="highlighter-rouge">
-pacman -Q
-</code></p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pacman -Q
+</code></pre></div></div>
 
 <h2 id="conclusion-and-next-steps">Conclusion and Next Steps</h2>
 
@@ -1343,7 +1216,7 @@ pacman -Q
 
 <ul>
   <li>
-    <p><strong>Fix OBS Studio</strong>: ~~I got this to work in my earlier install and can’t seem to remember how I fixed it. Currently OBS displays a black screen when set to <code class="highlighter-rouge">Screen Capture</code>~~. I finally got OBS studio to work and I think the issue was as simple as rebooting (or possibly an update with <code class="highlighter-rouge">sudo pacman -Syu</code>).</p>
+    <p><strong>Fix OBS Studio</strong>: <del>I got this to work in my earlier install and can’t seem to remember how I fixed it. Currently OBS displays a black screen when set to <code class="highlighter-rouge">Screen Capture</code></del>. I finally got OBS studio to work and I think the issue was as simple as rebooting (or possibly an update with <code class="highlighter-rouge">sudo pacman -Syu</code>).</p>
   </li>
   <li>
     <p><strong>Encrypting the home folder</strong>: this is good practice and will make my computer more secure, it shouldnt be too difficult either.</p>
@@ -1524,7 +1397,7 @@ pacman -Q
       </div>
       
       <div class="footer-col footer-col-3">
-        <p></p>
+        <p>my personal site</p>
       </div>
       
     </div>

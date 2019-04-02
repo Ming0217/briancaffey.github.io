@@ -68,6 +68,12 @@
           <a class="page-link" href="/projects/index.html">Projects</a>
           
         
+          
+        
+          
+        
+          
+        
       </div>
     </nav>
 
@@ -82,7 +88,7 @@
 
   <header class="post-header">
     <h1 class="post-title" itemprop="name headline">Fixing IPython module import errors</h1>
-    <p class="post-meta"><time datetime="2017-11-07T00:00:00-05:00" itemprop="datePublished">Nov 7, 2017</time></p>
+    <p class="post-meta"><time datetime="2017-11-07T00:00:00-06:00" itemprop="datePublished">Nov 7, 2017</time></p>
   </header>
 
   <div class="post-content" itemprop="articleBody">
@@ -90,29 +96,25 @@
 
 <p>I came across the following suggestion on <a href="https://github.com/jupyter/notebook/issues/1524">this</a> issue discussion on Github:</p>
 
-<p><code class="highlighter-rouge">
-$ /Users/abc/anaconda/bin/python -m pip install ipykernel
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ /Users/abc/anaconda/bin/python -m pip install ipykernel
 $ /Users/abc/anaconda/bin/python -m  ipykernel install
-</code></p>
+</code></pre></div></div>
 
 <p>Running this command told me that the package was already installed. Since I am using a virtual environment (with Anaconda), I need to install this in the virtual environment. To get the path we can run the following in IPython:</p>
 
-<p><code class="highlighter-rouge">python
-import sys
-sys.executable
-</code></p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">sys</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">executable</span>
+</code></pre></div></div>
 
 <p>For me this prints out the following:</p>
 
-<p><code class="highlighter-rouge">terminal
-/home/brian/anaconda3/envs/c4dc/bin/python
-</code></p>
+<div class="language-terminal highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="go">/home/brian/anaconda3/envs/c4dc/bin/python
+</span></code></pre></div></div>
 
 <p>Finally, what worked for me was to run the following commands:</p>
 
-<p><code class="highlighter-rouge">terminal
-/home/brian/anaconda3/envs/c4dc/bin/python -m pip install ipykernel
-</code></p>
+<div class="language-terminal highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="go">/home/brian/anaconda3/envs/c4dc/bin/python -m pip install ipykernel
+</span></code></pre></div></div>
 
 <p>This installed the IPython kernal and I was able to successfully import <code class="highlighter-rouge">geopandas</code> into my Jupyter notebook. Hopefully this helps you if you are having an trouble making imports with IPython or Jupyter notebooks.</p>
 
@@ -258,7 +260,7 @@ sys.executable
       </div>
       
       <div class="footer-col footer-col-3">
-        <p></p>
+        <p>my personal site</p>
       </div>
       
     </div>

@@ -68,6 +68,12 @@
           <a class="page-link" href="/projects/index.html">Projects</a>
           
         
+          
+        
+          
+        
+          
+        
       </div>
     </nav>
 
@@ -82,7 +88,7 @@
 
   <header class="post-header">
     <h1 class="post-title" itemprop="name headline">Including Jupyter Notebooks in Jekyll blog posts</h1>
-    <p class="post-meta"><time datetime="2016-03-14T00:00:00-04:00" itemprop="datePublished">Mar 14, 2016</time></p>
+    <p class="post-meta"><time datetime="2016-03-14T00:00:00-05:00" itemprop="datePublished">Mar 14, 2016</time></p>
   </header>
 
   <div class="post-content" itemprop="articleBody">
@@ -96,13 +102,12 @@
 
 <p>You can read more about converting iPython Notebooks <a href="https://ipython.org/ipython-doc/3/notebook/nbconvert.html">here</a>. In your terminal you should see the following:</p>
 
-<p><code class="highlighter-rouge">terminal
-$ ipython nbconvert jekyll_test.ipynb --to markdown
-[NbConvertApp] Converting notebook jekyll_test.ipynb to markdown
+<div class="language-terminal highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span> ipython nbconvert jekyll_test.ipynb <span class="nt">--to</span> markdown
+<span class="go">[NbConvertApp] Converting notebook jekyll_test.ipynb to markdown
 [NbConvertApp] Support files will be in jekyll_test_files/
 [NbConvertApp] Making directory jekyll_test_files
 [NbConvertApp] Writing 286 bytes to jekyll_test.md
-</code></p>
+</span></code></pre></div></div>
 
 <p>This puts related image files from graphs into a new folder, <code class="highlighter-rouge">jekyll_test_files/</code>, so you will have to make sure the path matches up. I have created a top-level folder named <code class="highlighter-rouge">ipynb</code> to keep things orderly.</p>
 
@@ -118,23 +123,19 @@ $ ipython nbconvert jekyll_test.ipynb --to markdown
 
 <p>Here is the result from a simple notebook that I used here:</p>
 
-<p><code class="highlighter-rouge">python
-import matplotlib.pyplot as plt
-%matplotlib inline
-</code></p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<span class="o">%</span><span class="n">matplotlib</span> <span class="n">inline</span>
+</code></pre></div></div>
 
-<p><code class="highlighter-rouge">python
-x = [1,2,3,4,5]
-y = [5,4,3,2,1]
-</code></p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">]</span>
+<span class="n">y</span> <span class="o">=</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span>
+</code></pre></div></div>
 
-<p><code class="highlighter-rouge">python
-plt.plot(x,y)
-</code></p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
+</code></pre></div></div>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>[&lt;matplotlib.lines.Line2D at 0x10dde4610&gt;]
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[&lt;matplotlib.lines.Line2D at 0x10dde4610&gt;]
+</code></pre></div></div>
 
 <p><img src="/ipynb/jekyll_test_files/jekyll_test_2_1.png" alt="png" /></p>
 
@@ -282,7 +283,7 @@ plt.plot(x,y)
       </div>
       
       <div class="footer-col footer-col-3">
-        <p></p>
+        <p>my personal site</p>
       </div>
       
     </div>
